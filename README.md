@@ -40,7 +40,7 @@ Add Trigger to your function so that whenever a new object is added to our sourc
 ![image](https://github.com/EKechei/Automated-Image-Resizing-Using-AWS-Services/assets/128794751/a9a90d84-d61d-41c5-ad8f-aa434731f819)
 ![image](https://github.com/EKechei/Automated-Image-Resizing-Using-AWS-Services/assets/128794751/d89d0e01-0245-460b-ad26-ae83d87bc32c)
 
-The next step is to add Layer, This is because to resize the image uploaded in our source S3 bucket, We need a Python library called pillow in our code to resize the image. So first, we need to create a lambda layer with Pillow library.
+The next step is to add Layer, This is because to resize the image uploaded to our source S3 bucket, We need a Python library called pillow in our code to resize the image. So first, we need to create a lambda layer with Pillow library.
 To achieve this we need to do the following tasks:
 
 - Create an EC2 instance with the AMI “Amazon Linux 2023 AMI”.
@@ -58,7 +58,7 @@ zip -r layer.zip python
 aws lambda publish-layer-version --layer-name pillow-layer --zip-file fileb://layer.zip --compatible-runtimes python3.9 --region us-east-1
 ```
 
-You can terminate the EC2 instance. Since the lambda layer has been created, we can go ahead and add it.
+You can terminate the EC2 instance. Since the lambda layer has been created, we can now go ahead and add it.
 
 ![image](https://github.com/EKechei/Automated-Image-Resizing-Using-AWS-Services/assets/128794751/20c61b72-f4f5-4af7-b80b-c859c5a70d6c)
 
